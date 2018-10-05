@@ -5,16 +5,24 @@
 \patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
 \makeatother
 
+
+
 \AtBeginSection[]
 {
-    \begin{frame}{Table of Contents}
-        \small
-    \tableofcontents[currentsection,currentsubsection,hideothersubsections]
+    \begin{frame}[t]{Table of Contents}
+        \begin{columns}
+            \begin{column}{.5\linewidth}
+                \tableofcontents[currentsection,hidesubsections,hideallsubsections]
+            \end{column}
+            \begin{column}{.5\linewidth}
+                \tableofcontents[sections={\thesection}]
+            \end{column}
+          \end{columns}
     \end{frame}
 }
 
 \newcommand{\sectionrecap}[0]{
-    \begin{frame}{Recap: \secname \hspace{0.1cm} $|$ Any Questions?}
+    \begin{frame}[t]{Recap of \secname \hspace{0.1cm} $|$ Any Questions?}
         \tableofcontents[sections={\thesection}]
     \end{frame}
 }
@@ -45,4 +53,32 @@
 
 \newcommand{\blankline}[0]{
     \\~\\
+}
+
+
+\setbeamertemplate{navigation symbols}{%
+    \ifnum \value{framenumber}>1
+
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \fbox{\parbox{0.3\paperwidth}{\itshape%
+    \inserttitle}}
+    %\hfill%
+
+    \hbox{%
+        \begin{beamercolorbox}[wd=0.6\paperwidth,ht=2.75ex,dp=.5ex,right,rightskip=1em]{mycolor}%
+            \usebeamercolor[fg]{navigation symbols}\insertslidenavigationsymbol%
+            \insertframenavigationsymbol%
+            \insertsubsectionnavigationsymbol%
+            \insertsectionnavigationsymbol%
+            \insertdocnavigationsymbol%
+            \insertbackfindforwardnavigationsymbol%
+        \end{beamercolorbox}%
+    }%
+
+    %\hfill
+    \parbox{0.05\paperwidth}{\insertframenumber/\inserttotalframenumber}
+
+    \else
+    \fi
 }
