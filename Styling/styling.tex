@@ -1,0 +1,48 @@
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\makeatother
+
+\AtBeginSection[]
+{
+    \begin{frame}{Table of Contents}
+        \small
+    \tableofcontents[currentsection,currentsubsection,hideothersubsections]
+    \end{frame}
+}
+
+\newcommand{\sectionrecap}[0]{
+    \begin{frame}{Recap: \secname \hspace{0.1cm} $|$ Any Questions?}
+        \tableofcontents[sections={\thesection}]
+    \end{frame}
+}
+
+\setbeamertemplate{background canvas}{%
+        \includegraphics[width=\paperwidth, height=0.5cm]{Images/top_bar.png}
+}
+\setbeamertemplate{frametitle}{
+\vspace*{5mm}\hspace*{-8mm}\insertframetitle}
+
+
+\logo{
+    \includegraphics[width=3cm,height=1.2cm, keepaspectratio]{Images/uw_logo.png}%
+}
+
+\setbeamercolor{footline}{fg=black}
+
+
+
+\setbeamercolor{frametitle}{fg = black}
+\setbeamercolor{title}{fg = black}
+
+\setbeamercolor{section in toc}{fg = black}
+
+\setbeamertemplate{section in toc shaded}{\inserttocsection}
+\setbeamercolor{section in toc shaded}{fg = gray}
+
+
+\newcommand{\blankline}[0]{
+    \\~\\
+}

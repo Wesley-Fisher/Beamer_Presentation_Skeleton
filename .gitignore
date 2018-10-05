@@ -1,0 +1,12 @@
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+!Presentation.tex
+!packages.tex
+!README.md
+!macros.tex
+!styling.tex
+!Styling
+!Misc
+!Styling
