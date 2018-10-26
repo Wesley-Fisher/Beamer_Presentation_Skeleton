@@ -4,8 +4,19 @@
 
 	%\begin{figure}
 	\includegraphics[scale=#3]{./Figures/#2}%
-		%\label{fig:#1}
+	%	\label{fig:#1}
 	%\end{figure}
+
+}
+
+\newcommand{\addcaptionedfigure}[4]
+{
+
+	\begin{figure}
+	\includegraphics[scale=#3]{./Figures/#2}%
+		\label{fig:#1}
+		\caption{#4}
+	\end{figure}
 
 }
 
