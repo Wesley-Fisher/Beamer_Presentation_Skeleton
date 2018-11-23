@@ -3,7 +3,7 @@
 {
 
 	%\begin{figure}
-	\includegraphics[scale=#2]{./Figures/#1}%
+	\includegraphics[width=#2\columnwidth]{./Figures/#1}%
 	%	\label{fig:#1}
 	%\end{figure}
 
@@ -13,7 +13,7 @@
 {
 
 	\begin{figure}
-	\includegraphics[scale=#3]{./Figures/#2}%
+	\includegraphics[width=#3\textwidth]{./Figures/#2}%
 		\label{fig:#1}
 		\caption{#4}
 	\end{figure}
@@ -27,7 +27,15 @@
 	\fbox{#1}
 }
 
-\newcommand{\annotatedright}[2]
+\newcommand{\sidebyside}[3]
 {
-	\pbox{\linewidth}{#1} \hspace{-0.25cm} {\parbox{0.5\linewidth}{#2}}
+	%\pbox{#1\textwidth}{#2} \hspace{-0.25cm} {\parbox{\textwidth-#1\textwidth}{#3}}
+	\begin{columns}
+		\begin{column}{#1\textwidth}
+			#2
+		\end{column}
+		\begin{column}{\textwidth-#1\textwidth-0.02\textwidth}
+			#3
+		\end{column}
+	\end{columns}
 }
