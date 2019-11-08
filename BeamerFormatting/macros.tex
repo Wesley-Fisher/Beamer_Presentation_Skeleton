@@ -1,0 +1,41 @@
+
+\newcommand{\addfigure}[3]
+{
+
+	%\begin{figure}
+	\includegraphics[width=#3\columnwidth]{./Figures/#2}%
+	\label{fig:#1}
+	%\end{figure}
+
+}
+
+\newcommand{\addcaptionedfigure}[4]
+{
+
+	\begin{figure}
+	\includegraphics[width=#3\textwidth]{./Figures/#2}%
+		\label{fig:#1}
+		\caption{#4}
+	\end{figure}
+
+}
+
+\newcommand{\blackboxed}[1]
+{
+	\setlength{\fboxsep}{0pt}%
+	\setlength{\fboxrule}{0.1pt}%
+	\fbox{#1}
+}
+
+\newcommand{\sidebyside}[3]
+{
+	%\pbox{#1\textwidth}{#2} \hspace{-0.25cm} {\parbox{\textwidth-#1\textwidth}{#3}}
+	\begin{columns}
+		\begin{column}{#1\textwidth}
+			#2
+		\end{column}
+		\begin{column}{\textwidth-#1\textwidth-0.02\textwidth}
+			#3
+		\end{column}
+	\end{columns}
+}

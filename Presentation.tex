@@ -1,14 +1,39 @@
 \documentclass[pdf]{beamer}
 \mode<presentation>{}
 
-\input{packages.tex}
-\input{Styling/styling.tex}
-\input{macros.tex}
+\input{BeamerFormatting/packages.tex}
+\input{BeamerFormatting/styling.tex}
+\input{BeamerFormatting/macros.tex}
 
 \begin{document}
 
-\input{Sections/frontmatter}
-\input{Sections/mainbody}
-\input{Sections/endmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FRONTMATTER
+\title[Footer Title]{The Title}
+\subtitle[]{Subtitle}
+\author{Author}
+\date{Date}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN BODY
+
+\include{Sections/demo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENDMATTER
+\begin{frame}[allowframebreaks]
+    \frametitle{References}
+    \tiny{\bibliographystyle{abbrv} }
+    \bibliography{bibliography.bib}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}

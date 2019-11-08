@@ -1,0 +1,73 @@
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\makeatother
+
+
+
+\AtBeginSection[]
+{
+    \begin{frame}[t]{Table of Contents}
+        \begin{columns}
+            \begin{column}{.5\linewidth}
+                \tableofcontents[currentsection,hidesubsections,hideallsubsections]
+            \end{column}
+            \begin{column}{.5\linewidth}
+                \tableofcontents[sections={\thesection}]
+            \end{column}
+          \end{columns}
+    \end{frame}
+}
+
+\newcommand{\sectionrecap}[0]{
+    \begin{frame}[t]{Recap of \secname \hspace{0.1cm} $|$ Any Questions?}
+        \tableofcontents[sections={\thesection}]
+    \end{frame}
+}
+
+\setbeamertemplate{background canvas}{%
+        \includegraphics[width=\paperwidth, height=0.5cm]{BeamerFormatting/Images/top_bar.png}
+}
+\setbeamertemplate{frametitle}{
+\vspace*{5mm}\hspace*{-8mm}\insertframetitle}
+
+
+\logo{
+    \vspace{-0.6cm}
+    \includegraphics[width=3cm,height=1.2cm, keepaspectratio]{BeamerFormatting/Images/uw_logo.png}%
+}
+
+\setbeamercolor{footline}{fg=black}
+
+
+
+\setbeamercolor{frametitle}{fg = black}
+\setbeamercolor{title}{fg = black}
+
+\setbeamercolor{section in toc}{fg = black}
+
+\setbeamertemplate{section in toc shaded}{\inserttocsection}
+\setbeamercolor{section in toc shaded}{fg = gray}
+
+
+\newcommand{\blankline}[0]{
+    \\~\\
+}
+
+
+\setbeamertemplate{footline}[text line]{%
+    \ifnum \value{framenumber}>1
+        \parbox{0.8\linewidth}{\vspace*{-8pt}\insertshorttitle \hfill \insertshortauthor \hfill 
+        \insertframenumber}
+        %\insertframenumber/\inserttotalframenumber}
+        
+    \else
+    \fi
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{navigation symbols}{%
+}
